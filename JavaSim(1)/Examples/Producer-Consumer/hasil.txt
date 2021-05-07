@@ -1,0 +1,116 @@
+Job created 1
+Job created after 1 1
+After Release Consumer 2
+Job Consumed 1
+After Job Consumed (calling Producer.jobnum 2
+After Release Producer 2
+Job created 2
+Job created after 2 1
+After Release Consumer 3
+Job Consumed 2
+After Job Consumed (calling Producer.jobnum 3
+After Release Producer 3
+Job created 3
+Job created after 3 1
+After Release Consumer 4
+Job Consumed 3
+After Job Consumed (calling Producer.jobnum 4
+After Release Producer 4
+Job created 4
+Job created after 4 1
+After Release Consumer 5
+Job Consumed 4
+After Job Consumed (calling Producer.jobnum 5
+After Release Producer 5
+Job created 5
+Job created after 5 1
+After Release Consumer 6
+Job Consumed 5
+After Job Consumed (calling Producer.jobnum 6
+After Release Producer 6
+Job created 6
+Job created after 6 1
+After Release Consumer 7
+Job Consumed 6
+After Job Consumed (calling Producer.jobnum 7
+After Release Producer 7
+Job created 7
+Job created after 7 1
+After Release Consumer 8
+Job Consumed 7
+After Job Consumed (calling Producer.jobnum 8
+After Release Producer 8
+Job created 8
+Job created after 8 1
+After Release Consumer 9
+Job Consumed 8
+After Job Consumed (calling Producer.jobnum 9
+After Release Producer 9
+Job created 9
+Job created after 9 1
+After Release Consumer 10
+Job Consumed 9
+After Job Consumed (calling Producer.jobnum 10
+After Release Producer 10
+Job created 10
+Job created after 10 1
+After Release Consumer 11
+Job Consumed 10
+After Job Consumed (calling Producer.jobnum 11
+After Release Producer 11
+Job created 11
+Job created after 11 1
+After Release Consumer 12
+Job Consumed 11
+After Job Consumed (calling Producer.jobnum 12
+After Release Producer 12
+Job created 12
+Job created after 12 1
+After Release Consumer 13
+Job Consumed 12
+After Job Consumed (calling Producer.jobnum 13
+After Release Producer 13
+Job created 13
+Job created after 13 1
+After Release Consumer 14
+Job Consumed 13
+After Job Consumed (calling Producer.jobnum 14
+After Release Producer 14
+Job created 14
+Job created after 14 1
+After Release Consumer 15
+Job Consumed 14
+After Job Consumed (calling Producer.jobnum 15
+After Release Producer 15
+Job created 15
+Job created after 15 1
+After Release Consumer 16
+Job Consumed 15
+After Job Consumed (calling Producer.jobnum 16
+After Release Producer 16
+Job created 16
+Job created after 16 1
+After Release Consumer 17
+Job Consumed 16
+After Job Consumed (calling Producer.jobnum 17
+After Release Producer 17
+Job created 17
+Job created after 17 1
+After Release Consumer 18
+Job Consumed 17
+After Job Consumed (calling Producer.jobnum 18
+After Release Producer 18
+Job created 18
+Job created after 18 1
+After Release Consumer 19
+Job Consumed 18
+After Job Consumed (calling Producer.jobnum 19
+After Release Producer 19
+Job created 19
+Job created after 19 1
+After Release Consumer 20
+Job Consumed 19
+After Job Consumed (calling Producer.jobnum 20
+After Release Producer 20
+Total number of jobs present 19
+Total number of jobs consumed 19
