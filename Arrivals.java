@@ -6,7 +6,10 @@
  * 3. 
  *
  */
+import java.io.IOException;
+
 import arjuna.JavaSim.Distributions.ExponentialStream;
+import arjuna.JavaSim.Simulation.RestartException;
 import arjuna.JavaSim.Simulation.SimulationException;
 import arjuna.JavaSim.Simulation.SimulationProcess;
 
@@ -21,6 +24,12 @@ public class Arrivals extends SimulationProcess{
     for (;;){
       try{
         Hold(interarrivalTime.getNumber());
+      } catch (SimulationException e){
+
+      } catch (RestartException e){
+
+      } catch (IOException e){
+        
       }
     }
   }
