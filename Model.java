@@ -43,15 +43,18 @@ public class Model extends SimulationProcess {
       }
       System.out.println("Terminate Main");
 
+      /* Stop the arrival thread, then simulation time, then back to MAIN thread */
+
       arrival.terminate();
       Scheduler.stopSimulation();
       SimulationProcess.mainResume();
+      
       Model.jobQ.print();
     } catch (SimulationException e) {
     } catch (RestartException e) {
     }
   }
-  
+
   public void Await() {
     this.Resume();
     SimulationProcess.mainSuspend();
