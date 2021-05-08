@@ -1,5 +1,5 @@
 # Exclude example from JavaSim(1) -- Containing example and Duplicate JavaSim Library
-!JavaSim(1)
+**/JavaSim(1)
 
 # Exclude pdf files
 javasim.pdf
