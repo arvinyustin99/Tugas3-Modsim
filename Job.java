@@ -1,9 +1,9 @@
 import arjuna.JavaSim.Simulation.*;
 
 public class Job{
-  private double finishedTime;
-  private double responseTime;
-  private double arrivalTime;
+  public double responseTime;
+  public double finishedTime;
+  public double arrivalTime;
 
   public Job(){
     finishedTime = 0.0;
@@ -11,9 +11,9 @@ public class Job{
     arrivalTime = Scheduler.CurrentTime();
   }
   public void taken(){
-    responseTime = Scheduler.CurrentTime() - arrivalTime;
+    responseTime = Scheduler.CurrentTime();
   }
   public void finished(){
-    finishedTime = Scheduler.CurrentTime() - responseTime;
+    finishedTime = Scheduler.CurrentTime();
   }
 }

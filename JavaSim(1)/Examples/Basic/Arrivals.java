@@ -4,36 +4,25 @@ import arjuna.JavaSim.Distributions.*;
 import java.io.IOException;
 import arjuna.JavaSim.Simulation.SimulationException;
 
-public class Arrivals extends SimulationProcess
-{
-    
-public Arrivals (double mean)
-    {
-	InterArrivalTime = new ExponentialStream(mean);
-    }
+public class Arrivals extends SimulationProcess {
 
-public void run ()
-    {
-	for (;;)
-	{
-	    try
-	    {
-		Hold(InterArrivalTime.getNumber());
-	    }
-	    catch (SimulationException e)
-	    {
-	    }
-	    catch (RestartException e)
-	    {
-	    }
-	    catch (IOException e)
-	    {
-	    }
+  public Arrivals(double mean) {
+    InterArrivalTime = new ExponentialStream(mean);
+  }
 
-	    Job work = new Job();
-	}
+  public void run() {
+    for (;;) {
+      try {
+        Hold(InterArrivalTime.getNumber());
+      } catch (SimulationException e) {
+      } catch (RestartException e) {
+      } catch (IOException e) {
+      }
+
+      Job work = new Job();
     }
-    
-private ExponentialStream InterArrivalTime;
-    
+  }
+
+  private ExponentialStream InterArrivalTime;
+
 };
