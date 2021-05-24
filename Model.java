@@ -4,15 +4,15 @@ import arjuna.JavaSim.Simulation.Scheduler;
 public class Model extends SimulationProcess {
   public double mean_service;
   public double mean_interarrival;
-  // public static ModelServer server;
+  public static ModelServer server = null;
   public static Queue jobQ = null;
   public static double TotalResponseTime = 0.0;
   public static long TotalJobs = 0;
   public static long ProcessedJobs = 0;
   public static long JobsInQueue = 0;
   public static long CheckFreq = 0;
-  public static double MachineActiveTime = 0.0;
-  public static double MachineFailedTime = 0.0;
+  public static double ActiveTime = 0.0;
+  public static double FailedTime = 0.0;
 
   /**
    * Construct a Model class
@@ -32,9 +32,10 @@ public class Model extends SimulationProcess {
 
       Arrival arrival = new Arrival(this.mean_interarrival);
       Model.jobQ = new Queue();
-      // this.server = new ModelServer(this.mean_service);
+      Model.server = new ModelServer(this.mean_service);
 
       arrival.Activate();
+      Model.server.Activate();
       Scheduler.startSimulation();
 
       while (Scheduler.CurrentTime() < 3600.0) {
@@ -42,6 +43,7 @@ public class Model extends SimulationProcess {
         Hold(3600.0);
       }
       System.out.println("Terminate Main");
+      
 
       /* Stop the arrival thread, then simulation time, then back to MAIN thread */
 
@@ -62,7 +64,7 @@ public class Model extends SimulationProcess {
 
   public static void main(String[] args) {
     System.out.println("Test0");
-    Model model = new Model(120.0, 150.0);
+    Model model = new Model(50, 150.0);
     model.Await();
     System.out.println("Test1");
   }
