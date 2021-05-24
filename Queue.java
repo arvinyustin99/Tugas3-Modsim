@@ -1,4 +1,3 @@
-import arjuna.JavaSim.Simulation.*;
 import java.util.NoSuchElementException;
 
 /**
@@ -82,6 +81,7 @@ public class Queue {
       while (ptr != null){
         System.out.println(counter + "." + ptr.getJob().arrivalTime);
         ptr = ptr.getNext();
+        counter += 1;
       }
     }
   }
