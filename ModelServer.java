@@ -9,6 +9,7 @@ import arjuna.JavaSim.Simulation.*;
 public class ModelServer extends SimulationProcess {
   private ExponentialStream mean_service;
   private Job current_job;
+  private boolean is_working = false;
 
   /**
    * 
@@ -33,19 +34,19 @@ public class ModelServer extends SimulationProcess {
      * This is to measure the duration the machine is active
      */
     double start, end;
-    System.out.println("not even here?");
+
     for (;;) {
-      
+
+      // if Queue not empty then process
       while (!Model.jobQ.isEmpty()) {
+        System.out.println("Server is processing job");
+        is_working = true;
         start = CurrentTime();
-        
+
         this.current_job = Model.jobQ.dequeue();
-        System.out.println("Job diproses");
-        // This update the job that must be queued / in delay
-        Model.JobsInQueue += Model.jobQ.getSize();
-        
+
         current_job.taken();
-        
+
         try {
           double temp = generateServiceTime();
           Hold(temp);
@@ -54,16 +55,22 @@ public class ModelServer extends SimulationProcess {
         }
 
         end = CurrentTime();
-        Model.ActiveTime += (start - end);
+        Model.ActiveTime += (end - start);
         Model.ProcessedJobs += 1;
+        Model.TotalDelay += current_job.responseTime - current_job.arrivalTime;
         current_job.finished();
+        is_working = false;
       }
 
       try {
-        System.out.println("masuk sini cok");
+        System.out.println("Server idle");
         Cancel();
-      } catch (RestartException e){
+      } catch (RestartException e) {
       }
     }
+  }
+
+  public boolean IsWorking() {
+    return is_working;
   }
 }

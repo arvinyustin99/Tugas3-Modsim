@@ -1,28 +1,30 @@
 import java.util.NoSuchElementException;
+import arjuna.JavaSim.Simulation.*;
 
 /**
- * This is Data Structure holding the queueing Job before
- * processed by Machine / Server. The queue has HEAD and Length info
+ * This is Data Structure holding the queueing Job before processed by Machine /
+ * Server. The queue has HEAD and Length info
  * 
  * 
  */
 public class Queue {
   private QueueElmt head;
   private long length;
+  private double recentArrivalTime = 0.0;
 
   /* CTOR */
-  public Queue(){
+  public Queue() {
     head = null;
     length = 0;
   }
 
   /* Basic Check */
-  public boolean isEmpty(){
+  public boolean isEmpty() {
     return (length == 0);
   }
 
   /* Selector */
-  public long getSize(){
+  public long getSize() {
     return length;
   }
 
@@ -31,22 +33,24 @@ public class Queue {
    * 
    * @param new Job must be initialized before
    */
-  public void enqueue(Job newJob){
-    if (newJob == null){
+  public void enqueue(Job newJob) {
+    if (newJob == null) {
       return;
     }
+
+    Model.TotalQueueLength += length * (newJob.arrivalTime - recentArrivalTime);
+    recentArrivalTime = Scheduler.CurrentTime();
 
     QueueElmt pointer = head;
 
     /* if list is empty, directly insert into head */
-    if (isEmpty()){
+    if (isEmpty()) {
       this.head = new QueueElmt();
       this.head.setJob(newJob);
       this.head.setNext(null);
-    }
-    else{
+    } else {
       /* insert at the end of queue */
-      while (pointer.getNext() != null){
+      while (pointer.getNext() != null) {
         pointer = pointer.getNext();
       }
 
@@ -56,12 +60,12 @@ public class Queue {
     }
     length++;
   }
-  
-/**
- * Remove QueueElmt from the head
- */
-  public Job dequeue(){
-    if (isEmpty()){
+
+  /**
+   * Remove QueueElmt from the head
+   */
+  public Job dequeue() {
+    if (isEmpty()) {
       throw (new NoSuchElementException());
     }
 
@@ -71,18 +75,18 @@ public class Queue {
     return removedJob.getJob();
   }
 
-  public void print(){
-    if (isEmpty()){
+  public void print() {
+    if (isEmpty()) {
       System.out.println("Queue Empty");
-    }
-    else{
+    } else {
       QueueElmt ptr = head;
       long counter = 1;
-      while (ptr != null){
+      while (ptr != null) {
         System.out.println(counter + "." + ptr.getJob().arrivalTime);
         ptr = ptr.getNext();
         counter += 1;
       }
     }
   }
+
 }
