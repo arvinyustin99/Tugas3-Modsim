@@ -29,15 +29,18 @@ public class Arrival extends SimulationProcess {
       }
 
       Job job = new Job();
-      //System.out.println("Job arrived on " + job.arrivalTime);
-      //System.out.println("Job arrived on " + Scheduler.CurrentTime());
       /* Insert the new job into Queue */
       Model.jobQ.enqueue(job);
+      Model.TotalJobs += 1;
       System.out.println("Job datang pada:\t" + (CurrentTime()));
-      try{
-        Model.server.ReActivate();
-      } catch(SimulationException e) {
-      } catch(RestartException e) {}
+
+      if (!Model.server.IsWorking()) {
+        try {
+          Model.server.ReActivate();
+        } catch (SimulationException e) {
+        } catch (RestartException e) {
+        }
+      }
     }
   }
 }
